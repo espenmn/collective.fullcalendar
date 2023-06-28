@@ -128,7 +128,7 @@ class FullcalendarView(BrowserView):
         return result
 
     def get_editable(self):
-        if plone.api.user.is_anonymous():
+        if api.user.is_anonymous():
             return "false"
         settings = self.get_settings()
         if settings.get("caleditable"):
