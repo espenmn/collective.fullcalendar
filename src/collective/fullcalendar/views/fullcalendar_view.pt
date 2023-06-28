@@ -45,6 +45,9 @@
 
             calendar.render();
 
+            var editable = <tal:block tal:content="structure python:view.get_editable()" />;
+
+            if (editable) {
             calendar.on('dateClick', function(info) {
                 date = info.dateStr;
                 allDay = info.allDay;
@@ -70,7 +73,7 @@
                 url.searchParams.set('allDay', allDay);
                 calendarAddLink.setAttribute('href', url);
                 calendarAddLink.click();
-            });
+            });}
 
             calendar.on('eventResize', function(info) {
                 if (confirm("Do you want to change the event?")) {
